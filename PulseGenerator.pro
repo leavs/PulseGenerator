@@ -34,3 +34,6 @@ HEADERS += \
 
 FORMS += \
         dialog.ui
+
+target.path = /usr/bin
+INSTALLS+= target

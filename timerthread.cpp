@@ -6,7 +6,6 @@
 
 TimerThread::TimerThread()
 {
-
 }
 
 void TimerThread::run()
@@ -15,18 +14,11 @@ void TimerThread::run()
     {
         while(mSphinxValue > 0)
         {
-            b = QTime::currentTime().msec();
-            writeFile("temp.txt","1");
-            l = QTime::currentTime().msec();
-            t = l - b;
-            qDebug() << "write1 use " << t << "ms";
-            msleep(1);
-            b = QTime::currentTime().msec();
-            writeFile("temp.txt","0");
-            l = QTime::currentTime().msec();
-            t = l - b;
-            qDebug() << "write2 use " << t << "ms";
-            msleep(1);
+            writeFile("/dev/chipsee-gpio1","1");
+            usleep(100);
+            writeFile("/dev/chipsee-gpio1","0");
+            usleep(1100);
+
             mSphinxValue--;
             if(mSphinxValue == 0)
                 emit oneWorkStop();

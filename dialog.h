@@ -21,8 +21,8 @@ public:
 private slots:
     void on_startBtn_clicked();
     void on_exitBtn_clicked();
-    void on_oneWorkStop();
-
+    void on_oneWorkStop();    
+    void comValue();
 private:
     Ui::Dialog *ui;
 };
