@@ -15,13 +15,20 @@ void TimerThread::run()
         while(mSphinxValue > 0)
         {
             writeFile("/dev/chipsee-gpio1","1");
-            usleep(100);
+            //usleep(0);
+            //usleep(5);
+            usleep(mHtime);
             writeFile("/dev/chipsee-gpio1","0");
-            usleep(1100);
+            //usleep(150);
+            //usleep(1100);
+            usleep(mLtime);
 
-            mSphinxValue--;
-            if(mSphinxValue == 0)
-                emit oneWorkStop();
+            if(!testmode)
+            {
+                mSphinxValue--;
+                if(mSphinxValue == 0)
+                    emit oneWorkStop();
+            }
         }
         msleep(500);
     }
@@ -42,6 +49,17 @@ void TimerThread::workStop()
 void TimerThread::setValue(int *value)
 {
     mSphinxValue = *value;
+}
+
+void TimerThread::setMode(bool value)
+{
+    testmode = value;
+}
+
+void TimerThread::setTime(int htime, int ltime)
+{
+    mHtime = htime;
+    mLtime = ltime;
 }
 
 bool TimerThread::writeFile(const QString &filename, QString value)

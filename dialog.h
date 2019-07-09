@@ -14,6 +14,7 @@ class Dialog : public QDialog
 private:
     TimerThread mTimerThread;
     int mSphinValue = 0;
+
 public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
@@ -23,6 +24,8 @@ private slots:
     void on_exitBtn_clicked();
     void on_oneWorkStop();    
     void comValue();
+    void setTestMode(bool value);
+
 private:
     Ui::Dialog *ui;
 };
