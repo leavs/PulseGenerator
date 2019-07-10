@@ -12,7 +12,7 @@ private:
     int mSphinxValue = 0;
     int b,l,t;
     int mHtime,mLtime;
-    bool testmode = true;
+    bool testmode = false;
 
 protected:
     void run() Q_DECL_OVERRIDE;
