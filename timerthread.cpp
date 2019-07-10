@@ -15,12 +15,8 @@ void TimerThread::run()
         while(mSphinxValue > 0)
         {
             writeFile("/dev/chipsee-gpio1","1");
-            //usleep(0);
-            //usleep(5);
             usleep(mHtime);
             writeFile("/dev/chipsee-gpio1","0");
-            //usleep(150);
-            //usleep(1100);
             usleep(mLtime);
 
             if(!testmode)

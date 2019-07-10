@@ -30,17 +30,23 @@ void Dialog::on_startBtn_clicked()
 
     switch(this->ui->c4Box->currentText().toInt())
     {
-        case 50 :
-            mTimerThread.setTime(9500,9500);      // 50Hz
+        case 50:
+            mTimerThread.setTime(9500,9500);     // 50Hz
             break;
         case 100:
-            mTimerThread.setTime(4600,4600);    //100Hz
+            mTimerThread.setTime(4600,4600);     //100Hz
             break;
         case 150:
-            mTimerThread.setTime(2950,2950);    //150Hz
+            mTimerThread.setTime(2950,2950);     //150Hz
             break;
         case 500:
-            mTimerThread.setTime(500,800);    //500Hz
+            mTimerThread.setTime(500,800);       //500Hz
+            break;
+        case 1000:
+            mTimerThread.setTime(10,300);        //1000Hz
+            break;
+        case 1500:
+            mTimerThread.setTime(10,250);        //1500Hz
             break;
         default:
             break;
